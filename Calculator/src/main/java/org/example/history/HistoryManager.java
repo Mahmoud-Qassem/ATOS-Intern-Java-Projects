@@ -17,10 +17,6 @@ public class HistoryManager {
         return history;
     }
 
-    public static void clearHistory() {
-        history.clear();
-    }
-
     public static void saveHistory() {
         try (java.io.FileWriter writer = new java.io.FileWriter("history.txt")) {
             for (String record : history) {
@@ -33,8 +29,6 @@ public class HistoryManager {
 
 
     public static void loadHistory(String filePath) {
-        history.clear(); // optional: clear old history before loading
-
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -42,6 +36,15 @@ public class HistoryManager {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void clearHistoryFile() {
+        history.clear();
+        try (java.io.FileWriter writer = new java.io.FileWriter("history.txt")) {
+            writer.write("");
+        } catch (Exception e) {
+            System.err.println("Error clearing history file: " + e.getMessage());
         }
     }
 

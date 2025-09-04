@@ -27,12 +27,13 @@ public class UserInteraction {
             System.out.println("6. Power");
             System.out.println("7. Square Root");
             System.out.println("8. History");
+            System.out.println("9. Clear History");
             System.out.println("0. Exit");
             System.out.println("-------------------------");
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
-            if (choice < 0 || choice > 8) {
+            if (choice < 0 || choice > 9) {
                 System.out.println("Invalid choice");
             }
             else {

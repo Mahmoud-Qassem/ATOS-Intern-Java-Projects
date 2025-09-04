@@ -30,6 +30,9 @@ public class Main {
             else if (choice == 8) {
                 HistoryManager.getHistory().forEach(System.out::println);
             }
+            else if (choice == 9) {
+                HistoryManager.clearHistoryFile();
+            }
             else {
                 operation = getOperation(choice);
                 if (choice <= BINARY_OPERATIONS) {
